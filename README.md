@@ -31,11 +31,11 @@ Also, when one writes a negative review, it is very easy to get carried away and
 
 ## Starting the React App
 
-To start the React app, you need first to create the repository using the CIs template form \_\_\_\_!!!!!
-Then, run the following commands in the terminal:
+To start the React app, you need first to create the repository and runing the following command in the terminal:
 
-1. `npm install`
-2. `npm start`
+```bash
+npx create-react-app . --use-npm
+```
 
 After that, you should see the React app running on port 3000. You can access it by clicking on the "Preview" button on the top of the IDE.
 
