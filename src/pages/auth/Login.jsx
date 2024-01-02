@@ -1,13 +1,15 @@
 import { useState } from "react";
+// axios is used to make requests to the backend
+import axios from "axios";
 // useHistory has been replaced by useNavigate in react-router-dom v6
 import { Link, useNavigate } from "react-router-dom";
-
+// Bootstrap components
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Alert } from "react-bootstrap";
-import axios from "axios";
+// Custom hook to set the current user
 import { useSetCurrentUser } from "../contexts/CurrentUserContext";
-import { setTokenTimestamp, setAccessToken } from "../utils/utils";
+// import { setTokenTimestamp, setAccessToken } from "../utils/utils";
 
 function Login() {
     const setCurrentUser = useSetCurrentUser();
@@ -33,9 +35,9 @@ function Login() {
             );
             // ! log data back from dj-rest-auth
             console.log("recieved data: ", data);
-            setCurrentUser(data.user);
+            // setCurrentUser(data.user);
             // setAccessToken(data);
-            setTokenTimestamp(data);
+            // setTokenTimestamp(data);
             navigate("/");
         } catch (error) {
             // The question mark will check if there is a response object in the error object
