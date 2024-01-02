@@ -33,6 +33,8 @@ export const CurrentUserProvider = ({ children }) => {
         handleMount();
     }, []);
 
+    // It needs to be placed here, because we need it to run before
+    // the children are rendered
     useMemo(() => {
         axiosReq.interceptors.request.use(
             console.log("axiosReq interceptors"),
