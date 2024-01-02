@@ -5,6 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 // pages
 import About from './pages/About';
 import NotFound from './pages/NotFound';
+import Home from './pages/Home';
+// axios
+import './api/axiosDefaults'
 
 function App() {
   return (
