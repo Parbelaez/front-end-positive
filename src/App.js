@@ -3,9 +3,11 @@ import NavBar from './components/NavBar';
 import Container from 'react-bootstrap/Container';
 import { Routes, Route } from 'react-router-dom';
 // pages
+import Home from './pages/Home';
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
-import Home from './pages/Home';
 // axios
 import './api/axiosDefaults'
 
@@ -16,6 +18,8 @@ function App() {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
