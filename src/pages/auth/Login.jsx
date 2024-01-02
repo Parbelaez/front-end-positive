@@ -35,9 +35,9 @@ function Login() {
             );
             // ! log data back from dj-rest-auth
             console.log("recieved data: ", data);
-            // setCurrentUser(data.user);
+            setCurrentUser(data.user);
             // setAccessToken(data);
-            // setTokenTimestamp(data);
+            setTokenTimestamp(data);
             navigate("/");
         } catch (error) {
             // The question mark will check if there is a response object in the error object
