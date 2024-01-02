@@ -43,7 +43,7 @@ After that, you should see the React app running on port 3000. You can access it
 
 React works with components. Components are reusable pieces of code that can be used to build elements of the UI.
 
-To create a component, you need to create a new file in the `src` folder. The file name should start with a capital letter, and it should have the `.js` extension. For example, `NavBar.js`.
+To create a component, you need to create a new file in the `src` folder. The file name should start with a capital letter, and it should have the `.jsx` extension. For example, `NavBar.jsx`.
 
 In the file, you need to import React and export the component. You can do that by adding the following code:
 
