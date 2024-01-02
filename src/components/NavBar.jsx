@@ -75,21 +75,21 @@ const NavBar = () => {
 
     return (
         <Navbar
+            className={styles.NavBar}
             expanded={expanded}
             expand="md"
             fixed="top"
-            className="bg-body-tertiary"
         >
             <Container>
-                <Navbar.Brand>
-                    <Link to="/">
+                <NavLink to="/">
+                    <Navbar.Brand>
                         <img
                             src={logo_color_trimmed}
                             alt="logo"
                             height="45"
                         ></img>
-                    </Link>
-                </Navbar.Brand>
+                    </Navbar.Brand>
+                </NavLink>
                 <Navbar.Toggle
                     ref={ref}
                     onClick={() => setExpanded(!expanded)}
