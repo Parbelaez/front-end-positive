@@ -63,8 +63,11 @@ const NavBar = () => {
                 </NavDropdown.Item>
             </NavDropdown>
             <NavLink
-                className={styles.NavLink}
-                activeClassName={styles.Active}
+                // activeClassName has been deprecated in react router 6
+                className={
+                    ({ isActive }) =>
+                        "{styles.NavLink}" + (isActive ? "{styles.Active}" : "")
+                }
                 to="/login"
                 onClick={handleSignOut}
             >
@@ -105,8 +108,10 @@ const NavBar = () => {
                     >
                         {currentUser ? loggedInIcons : loggedOutIcons}
                         <NavLink
-                            className={styles.NavLink}
-                            activeClassName={styles.Active}
+                            className={({ isActive }) =>
+                                "{styles.NavLink}" +
+                                (isActive ? "{styles.Active}" : "")
+                            }
                             to="/about"
                         >
                             About
