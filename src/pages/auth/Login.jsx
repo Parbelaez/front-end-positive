@@ -8,8 +8,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Alert } from "react-bootstrap";
 // Custom hook to set the current user
-import { useSetCurrentUser } from "../contexts/CurrentUserContext";
-// import { setTokenTimestamp, setAccessToken } from "../utils/utils";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
 
 function Login() {
     const setCurrentUser = useSetCurrentUser();
