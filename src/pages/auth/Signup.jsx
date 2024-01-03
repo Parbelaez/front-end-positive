@@ -29,7 +29,6 @@ function Signup() {
         });
     };
 
-    // !NOT WORKING!!!!!!!!!!!!!!!!!!!
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

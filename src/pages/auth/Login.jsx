@@ -26,9 +26,11 @@ function Login() {
     let navigate = useNavigate();
 
     const handleSubmit = async (event) => {
+        console.log("submitting")
         event.preventDefault();
 
         try {
+            console.log("data to submit: ", loginData);
             const { data } = await axios.post(
                 "/dj-rest-auth/login/",
                 loginData
@@ -54,6 +56,7 @@ function Login() {
             ...loginData,
             [event.target.name]: event.target.value,
         });
+        console.log("loginData", loginData);
     };
 
     return (
