@@ -15,7 +15,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
-      <Container>
+      <Container className={styles.Main}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
