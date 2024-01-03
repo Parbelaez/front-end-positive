@@ -1,21 +1,22 @@
 import PostCard from "../components/PostCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { axiosReq } from "../api/axiosDefaults";
 
 
-const Home = () => {
+const Dashboard = () => {
     const [posts, setPosts] = useState(null);
     useEffect(() => {
-        const home = async () => {
+        const dashboard = async () => {
             try {
-                const result = await axios.get('https://api-positive-a53d71b6a573.herokuapp.com/posts');
+                const result = await axiosReq.get('https://api-positive-a53d71b6a573.herokuapp.com/posts');
                 console.log(result.data);
                 setPosts(result.data);
             } catch (error) {
                 console.log(error);
             }
         };
-        home();
+        dashboard();
     }, []);
     return (
         <div>
@@ -33,4 +34,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Dashboard;
