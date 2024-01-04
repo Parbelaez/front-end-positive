@@ -51,7 +51,7 @@ const NavBar = () => {
                     <Link to="/places">All Places</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                    <Link to="/new_place">Create New Place</Link>
+                    <Link to="/create-place">Create New Place</Link>
                 </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Posts" id="basic-nav-dropdown">

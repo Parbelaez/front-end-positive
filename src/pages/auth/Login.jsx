@@ -1,13 +1,12 @@
 import { useState } from "react";
-// axios is used to make requests to the backend
 import axios from "axios";
 // useHistory has been replaced by useNavigate in react-router-dom v6
 import { Link, useNavigate } from "react-router-dom";
-// Bootstrap components
+
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Alert } from "react-bootstrap";
-// Custom hook to set the current user
+
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
 
@@ -56,7 +55,6 @@ function Login() {
             ...loginData,
             [event.target.name]: event.target.value,
         });
-        console.log("loginData", loginData);
     };
 
     return (

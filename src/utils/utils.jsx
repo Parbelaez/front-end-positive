@@ -1,14 +1,24 @@
 import { jwtDecode } from "jwt-decode"
 
+// export const setAccessToken = (data) => {
+//     const accessToken = jwtDecode(data?.access).exp;
+//     console.log("accessToken", accessToken);
+//     localStorage.setItem("accessToken", accessToken);
+// };
+
 export const setTokenTimestamp = (data) => {
-    const refreshTokenTimestamp = jwtDecode(data?.refresh).exp
-    localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp)
-}
+    const refreshTokenTimestamp = jwtDecode(data?.refresh).exp;
+    console.log("set refreshTokenTimestamp", refreshTokenTimestamp);
+    localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+};
 
 export const shouldRefreshToken = () => {
-    return !!localStorage.getItem("refreshTokenTimestamp")
-}
+    const refreshtokenexists = !!localStorage.getItem("refreshTokenTimestamp");
+    console.log("refreshTokenTimestamp exists ", refreshtokenexists);
+    return !!localStorage.getItem("refreshTokenTimestamp");
+};
 
 export const removeTokenTimestamp = () => {
-    localStorage.removeItem("refreshTokenTimestamp")
-}
+    localStorage.removeItem("refreshTokenTimestamp");
+    console.log("refreshTokenTimestamp removed");
+};

@@ -31,7 +31,7 @@ function Dashboard({ message, filter = "" }) {
                     <>
                         {posts.results.length ? (
                             posts.results.map((post) => (
-                                <div className="col-md-4">
+                                <div className="col-md-4" key={post.id}>
                                     <PostCard
                                         key={post.id}
                                         {...post}

@@ -21,6 +21,7 @@ const PostCard = (props) => {
         image,
         image_filter,
         recommendation,
+        like_id,
         like_type,
         num_tops,
         num_likes,

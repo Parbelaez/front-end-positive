@@ -37,18 +37,20 @@ export const CurrentUserProvider = ({ children }) => {
     // the children are rendered
     useMemo(() => {
         axiosReq.interceptors.request.use(
-            console.log("axiosReq interceptors"),
             async (config) => {
                 if (shouldRefreshToken()) {
+                    console.log("should refresh token")
                     try {
                         await axios.post("/dj-rest-auth/token/refresh/");
                     } catch (error) {
+                        console.log("ISSUE IS HERE")
                         setCurrentUser((prevCurrentUser) => {
                             if (prevCurrentUser) {
                                 navigate("/login");
                             }
                             return null;
                         });
+                        console.log("Remove token timestamp by request interceptor");
                         removeTokenTimestamp();
                         return config;
                     }
@@ -56,12 +58,11 @@ export const CurrentUserProvider = ({ children }) => {
                 return config;
             },
             (error) => {
-                Promise.reject(error);
+                return Promise.reject(error);
             }
         );
 
         axiosRes.interceptors.response.use(
-            console.log("axiosRes interceptors"),
             (response) => response,
             async (error) => {
                 if (error.response?.status === 401) {
@@ -74,9 +75,12 @@ export const CurrentUserProvider = ({ children }) => {
                             }
                             return null;
                         });
+                        console.log(
+                            "Remove token timestamp by response interceptor"
+                        );
                         removeTokenTimestamp();
                     }
-                    return axiosRes(error.config);
+                    return axios(error.config);
                 }
                 return Promise.reject(error);
             }
