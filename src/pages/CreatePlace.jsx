@@ -19,7 +19,7 @@ function CreatePlace() {
     const imageInput = useRef(null);
     let navigate = useNavigate();
 
-    const [postData, setPostData] = useState({
+    const [placeData, setPlaceData] = useState({
         place_name: "",
         place_type: "",
         address: "",
@@ -54,8 +54,8 @@ function CreatePlace() {
 
     const handleChange = (event) => {
         // handleChange for all fields
-        setPostData({
-            ...postData,
+        setPlaceData({
+            ...placeData,
             [event.target.name]: event.target.value,
         });
         // handleChange for country field... city field is updated based on country
@@ -67,16 +67,16 @@ function CreatePlace() {
     const handleChangeImage = (event) => {
         // handleChange for image field
         if (event.target.files.length) {
-            setPostData({
-                ...postData,
+            setPlaceData({
+                ...placeData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
         }
     };
 
     const handleSelect = (event) => {
-        setPostData({
-            ...postData,
+        setPlaceData({
+            ...placeData,
             [event.target.name]: event.target.value,
         });
     };
@@ -85,14 +85,14 @@ function CreatePlace() {
         event.preventDefault();
         const formData = new FormData();
 
-        formData.append("place_name", postData.place_name);
-        formData.append("place_type", postData.place_type);
-        formData.append("address", postData.address);
-        formData.append("country", postData.country);
-        formData.append("city", postData.city);
-        formData.append("website", postData.website);
-        formData.append("phone_number", postData.phone_number);
-        formData.append("description", postData.description);
+        formData.append("place_name", placeData.place_name);
+        formData.append("place_type", placeData.place_type);
+        formData.append("address", placeData.address);
+        formData.append("country", placeData.country);
+        formData.append("city", placeData.city);
+        formData.append("website", placeData.website);
+        formData.append("phone_number", placeData.phone_number);
+        formData.append("description", placeData.description);
         formData.append("image", imageInput.current.files[0]);
 
         try {
@@ -117,7 +117,7 @@ function CreatePlace() {
                         className="form-control"
                         id="place_name"
                         name="place_name"
-                        value={postData.place_name}
+                        value={placeData.place_name}
                         onChange={handleChange}
                     />
                 </div>
@@ -158,7 +158,7 @@ function CreatePlace() {
                         className="form-control"
                         id="address"
                         name="address"
-                        value={postData.address}
+                        value={placeData.address}
                         onChange={handleChange}
                     />
                 </div>
@@ -173,7 +173,7 @@ function CreatePlace() {
                         className="form-control"
                         id="country"
                         name="country"
-                        value={postData.country}
+                        value={placeData.country}
                         onChange={handleChange}
                     >
                         <option value="">Select a country</option>
@@ -195,7 +195,7 @@ function CreatePlace() {
                         className="form-control"
                         id="city"
                         name="city"
-                        value={postData.city}
+                        value={placeData.city}
                         onChange={handleChange}
                     >
                         <option value="">Select a city</option>
@@ -216,7 +216,7 @@ function CreatePlace() {
                         className="form-control"
                         id="website"
                         name="website"
-                        value={postData.website}
+                        value={placeData.website}
                         onChange={handleChange}
                     />
                     {/* {errors.website && (
@@ -237,7 +237,7 @@ function CreatePlace() {
                         className="form-control"
                         id="phone_number"
                         name="phone_number"
-                        value={postData.phone_number}
+                        value={placeData.phone_number}
                         onChange={handleChange}
                     />
                 </div>
@@ -252,7 +252,7 @@ function CreatePlace() {
                         className="form-control"
                         id="description"
                         name="description"
-                        value={postData.description}
+                        value={placeData.description}
                         onChange={handleChange}
                     />
                 </div>

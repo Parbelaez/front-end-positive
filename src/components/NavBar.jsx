@@ -59,7 +59,7 @@ const NavBar = () => {
                     <Link to="/posts">All Posts</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                    <Link to="/new_post">Create New Post</Link>
+                    <Link to="/create-post">Create New Post</Link>
                 </NavDropdown.Item>
             </NavDropdown>
             <NavLink
