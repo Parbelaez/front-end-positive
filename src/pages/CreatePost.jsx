@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { axiosReq } from "../api/axiosDefaults";
 import { useNavigate } from "react-router-dom";
-import Alert from "react-bootstrap/Alert";
+// import Alert from "react-bootstrap/Alert";
 
 function CreatePost() {
     const [errors, setErrors] = useState({});

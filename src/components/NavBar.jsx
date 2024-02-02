@@ -15,10 +15,12 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import { useClickOutsideToggle } from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+    let navigate = useNavigate();
 
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
@@ -27,6 +29,7 @@ const NavBar = () => {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
             removeTokenTimestamp();
+            navigate("/login");
         } catch (err) {
             console.log(err);
         }
@@ -68,7 +71,7 @@ const NavBar = () => {
                     ({ isActive }) =>
                         "{styles.NavLink}" + (isActive ? "{styles.Active}" : "")
                 }
-                to="/login"
+                to="/logout"
                 onClick={handleSignOut}
             >
                 Logout
@@ -76,7 +79,19 @@ const NavBar = () => {
         </>
     );
 
-    const loggedOutIcons = <></>;
+    const loggedOutIcons = (
+        <>
+            <NavLink
+                // activeClassName has been deprecated in react router 6
+                className={({ isActive }) =>
+                    "{styles.NavLink}" + (isActive ? "{styles.Active}" : "")
+                }
+                to="/login"
+            >
+                Login
+            </NavLink>
+        </>
+    );
 
     return (
         <Navbar
